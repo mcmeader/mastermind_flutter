@@ -1,9 +1,9 @@
 import 'package:mastermind/enums.dart';
 
-class DifficultyHandler{
+class DifficultyHandler {
   GameDifficulty gameDifficulty;
 
-  DifficultyHandler(this.gameDifficulty):assert(gameDifficulty != null);
+  DifficultyHandler(this.gameDifficulty) : assert(gameDifficulty != null);
 
   int getNumOfFields() {
     switch (gameDifficulty) {
@@ -26,5 +26,4 @@ class DifficultyHandler{
         return null;
     }
   }
-
 }

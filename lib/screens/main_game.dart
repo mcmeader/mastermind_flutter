@@ -1,85 +1,83 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:mastermind/constants.dart';
+import 'package:mastermind/enums.dart';
+import 'package:mastermind/handlers/game_menu.dart';
 
 class MainGame extends StatelessWidget {
-  int roundNum;
-  int maxRounds;
+  final int roundNum = 1;
+  final int maxRounds = 13;
 
-  Widget gameGoalWidget(){return new Image.asset('cover_placeholder.png');}
 
-  StatelessWidget guessCountMessageWidget(){return new Text("Round: $roundNum");}
+  /*TODO: Figure out Menu Button
+  //Top Row
+  Widget gameGoalWidget() {
+    return Image.asset("test.jpg");
+  }
 
-  Widget guessResultsWidget(int numFields){return null;}
+  List<PopupMenuItem<GameMenuItems>> selections = <PopupMenuItem<GameMenuItems>>[
+    popUpMenuItemCreator(
+      GameMenuItems.changeColorScheme, gameMenuColorSchemeText),
+    popUpMenuItemCreator(
+        GameMenuItems.saveAndExit, gameMenuSaveExitText),
+    popUpMenuItemCreator(GameMenuItems.exit, gameMenuExitText),];
 
-  Widget currentGuessWidget(int numFields){return null;}
 
-  Widget colorPoolWidget(intNumFields){return null;}
+  Widget gameMenuWidget() {
+    return PopupMenuButton(
+      onSelected: GameMenuHandler().selectionProcessor(selections.indexOf(element)),
+        itemBuilder: (BuildContext context) => selections.map(selections);
+  }
 
-  StatelessWidget submitGuessWidget(){return new FlatButton(child: Text("Guess"), onPressed: null);}
+  static PopupMenuItem<GameMenuItems> popUpMenuItemCreator(
+      GameMenuItems itemProperty, String itemText) {
+    return PopupMenuItem(key: Key(itemProperty.toString()), value: itemProperty, child: Text(itemText));
+  }
+
+  Widget topRow() {
+    return Row(children: <Widget>[gameGoalWidget(),gameMenuWidget()]);
+  }
+  //
+//
+//  //Gameplay Row
+//  StatelessWidget guessCountMessageWidget() {
+//    return new Text("Round: $roundNum");
+//  }
+//
+//  Widget guessResultsWidget(int numFields, bool currentGuess) {
+//    return null;
+//  }
+//
+//  Widget guessRow() {
+//    return Row(children: <Widget>[
+//      guessCountMessageWidget(),
+//      guessResultsWidget(1, true)
+//    ]);
+//  }
+//
+//  Widget guessSpace() {
+//    return Row(children: <Widget>[guessRow()]);
+//  }
+//  //
+//
+//  //Bottom Row
+//  Widget colorPoolWidget(intNumFields) {
+//    return null;
+//  }
+//
+//  StatelessWidget submitGuessWidget() {
+//    return new FlatButton(child: Text("Guess"), onPressed: null);
+//  }
+//
+//  Widget bottomRow(){ return Row(children: <Widget>[colorPoolWidget(1),submitGuessWidget()]);}
+//  //
 
   @override
   Widget build(BuildContext context) {
-    return new MainGame();
+    return Scaffold(
+      body: new Center(child: topRow()),
+    );
   }
-
 }
-
-
-
-
-
-
-
-
-
-
-
-//
-//class MyApp extends StatelessWidget {
-//  @override
-//  Widget build(BuildContext context) {
-//    return MaterialApp(
-//      title: 'Flutter Demo',
-//      theme: ThemeData(
-//        primarySwatch: Colors.blue,
-//      ),
-//      home: MyHomePage(title: 'Flutter Demo Home Page'),
-//    );
-//  }
-//}
-//
-//class MyHomePage extends StatefulWidget {
-//  MyHomePage({Key key, this.title}) : super(key: key);
-//  final String title;
-//
-//  @override
-//  _MyHomePageState createState() => _MyHomePageState();
-//}
-//
-//class _MyHomePageState extends State<MyHomePage> {
-//  int _counter = 0;
-//
-//  @override
-//  Widget build(BuildContext context) {
-//    return Scaffold(
-//      appBar: AppBar(
-//        title: Text(widget.title),
-
-//      ),
-//      body: Center(
-//        child: Column(
-//          mainAxisAlignment: MainAxisAlignment.center,
-//          children: <Widget>[
-//            Text(
-//              'You have pushed the button this many times:',
-//            ),
-//            Text(
-//              '$_counter',
-//              style: Theme.of(context).textTheme.display1,
-//            ),
-//          ],
-//        ),
-//      ),
-//    );
-//  }
-//}
