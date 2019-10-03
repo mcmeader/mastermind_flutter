@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:mastermind/screens/main_game.dart';
-import 'package:mastermind/screens/main_menu.dart';
 
 void main() => runApp(MyApp());
 

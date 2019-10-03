@@ -1,15 +1,13 @@
-import 'dart:io';
-
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:mastermind/constants.dart';
 import 'package:mastermind/enums.dart';
-import 'package:mastermind/handlers/game_menu.dart';
 
 class MainGame extends StatelessWidget {
-  final int roundNum = 1;
-  final int maxRounds = 13;
-
+  final roundNum = 1;
+  final maxRounds = 13;
+  final numRounds = 1;
+  final pegColors = null;
+  final gameDifficulty = null;
 
   /*TODO: Figure out Menu Button
   //Top Row
@@ -40,28 +38,43 @@ class MainGame extends StatelessWidget {
     return Row(children: <Widget>[gameGoalWidget(),gameMenuWidget()]);
   }
   //
-//
-//  //Gameplay Row
-//  StatelessWidget guessCountMessageWidget() {
-//    return new Text("Round: $roundNum");
-//  }
-//
-//  Widget guessResultsWidget(int numFields, bool currentGuess) {
-//    return null;
-//  }
-//
-//  Widget guessRow() {
-//    return Row(children: <Widget>[
-//      guessCountMessageWidget(),
-//      guessResultsWidget(1, true)
-//    ]);
-//  }
-//
-//  Widget guessSpace() {
-//    return Row(children: <Widget>[guessRow()]);
-//  }
-//  //
-//
+   */
+
+  //Gameplay Row
+  StatelessWidget guessCountMessageWidget() {
+    return new Text("Round: $roundNum");
+  }
+
+  //TODO: Update to accomodate multiple difficulties
+  Widget checkedGuessWidget(int numFields) {
+
+//    StartGame(diff)
+
+    return Row(children: <Widget>[Text("hello")],);
+  }
+
+  //TODO:  Update to use pictures
+  Widget guessPegWidget(PossiblePegs peg) {
+    return Text(peg.toString());
+  }
+
+  //TODO:  Update to use pictures
+  Widget checkerPegWidget(CheckerCodes peg){
+    return Text(peg.toString());
+  }
+
+
+  Widget guessRow() {
+    return Row(
+        children: <Widget>[guessCountMessageWidget(), checkedGuessWidget(1)]);
+  }
+
+  Widget guessSpace() {
+    return Row(children: <Widget>[guessRow()]);
+  }
+
+  //
+
 //  //Bottom Row
 //  Widget colorPoolWidget(intNumFields) {
 //    return null;
@@ -77,7 +90,7 @@ class MainGame extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: new Center(child: topRow()),
+      body: new Center(child: guessSpace()),
     );
   }
 }

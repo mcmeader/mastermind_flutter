@@ -1,7 +1,6 @@
 import 'package:mastermind/enums.dart';
 
 class GameMenuHandler {
-
   selectionProcessor(GameMenuItems selection) {
     switch (selection) {
       case GameMenuItems.changeColorScheme:
@@ -13,20 +12,18 @@ class GameMenuHandler {
       case GameMenuItems.exit:
         exitGame();
         break;
-
     }
   }
 
-    changeColorScheme(){
-      return null;
-    }
-
-    saveAndExit(){
+  changeColorScheme() {
     return null;
-    }
-
-    exitGame(){
-    return null;
-    }
   }
 
+  saveAndExit() {
+    return null;
+  }
+
+  exitGame() {
+    return null;
+  }
+}

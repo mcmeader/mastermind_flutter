@@ -1,25 +1,5 @@
 enum GameDifficulty { easy, medium, hard, crazy, insane }
-
-enum EasyColors { red, blue, white, black }
-
-enum MediumColors { red, yellow, blue, green, white, black }
-
-enum HardColors { red, yellow, blue, green, orange, purple, white, black }
-
-enum CrazyColors {
-  red,
-  orange,
-  yellow,
-  blue,
-  green,
-  purple,
-  pink,
-  brown,
-  white,
-  black
-}
-
-enum InsaneColors {
+enum PossiblePegs {
   red,
   orange,
   yellow,
@@ -33,9 +13,9 @@ enum InsaneColors {
   black,
   empty
 }
-
 enum GameMenuItems {
   changeColorScheme,
   saveAndExit,
   exit,
 }
+enum CheckerCodes { correctSpot, correctColor, notCorrect }

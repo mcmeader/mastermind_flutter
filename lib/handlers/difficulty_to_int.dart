@@ -5,7 +5,7 @@ class DifficultyHandler {
 
   DifficultyHandler(this.gameDifficulty) : assert(gameDifficulty != null);
 
-  int getNumOfFields() {
+  getNumOfFields() {
     switch (gameDifficulty) {
       case GameDifficulty.easy:
         return 3;
