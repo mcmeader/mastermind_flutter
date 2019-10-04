@@ -11,8 +11,7 @@ class StartGame {
   List<List<PossiblePegs>> _guesses;
   List<List<CheckerCodes>> _checkedGuesses;
 
-
-  StartGame(this._difficulty,this.maxRoundNumber) : super();
+  StartGame(this._difficulty, this.maxRoundNumber) : super();
 
   List<PossiblePegs> makeCode() {
     final currentTime = DateTime.now().millisecond;
@@ -49,25 +48,27 @@ class StartGame {
       }
     }
 
-    saveGuess(guess,checkedGuesses);
+    saveGuess(guess, checkedGuesses);
 
-    if (_checkVictory(checkedGuesses)){
-     return true;
-   }else{
+    if (_checkVictory(checkedGuesses)) {
+      return true;
+    } else {
       return (_checkDefeat(currentRound)) ? false : checkedGuesses;
     }
   }
 
   //TODO: Save list to memory as well?
-  void saveGuess(List<PossiblePegs> guess, List<CheckerCodes> checkedGuesses){
+  void saveGuess(List<PossiblePegs> guess, List<CheckerCodes> checkedGuesses) {
     _guesses.add(guess);
     _checkedGuesses.add(checkedGuesses);
   }
 
-  bool _checkVictory(List<CheckerCodes> checkedGuesses) => (checkedGuesses.length == _codeToGuess.length);
+  bool _checkVictory(List<CheckerCodes> checkedGuesses) =>
+      (checkedGuesses.length == _codeToGuess.length);
 
   bool _checkDefeat(int currentRound) => (currentRound > maxRoundNumber);
 
   get guesses => _guesses;
+
   get checkedGuesses => _checkedGuesses;
-  }
+}

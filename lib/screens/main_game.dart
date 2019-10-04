@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:mastermind/constants.dart';
 import 'package:mastermind/enums.dart';
 
 class MainGame extends StatelessWidget {
@@ -47,10 +48,11 @@ class MainGame extends StatelessWidget {
 
   //TODO: Update to accomodate multiple difficulties
   Widget checkedGuessWidget(int numFields) {
-
 //    StartGame(diff)
 
-    return Row(children: <Widget>[Text("hello")],);
+    return Row(
+      children: <Widget>[Text("hello")],
+    );
   }
 
   //TODO:  Update to use pictures
@@ -59,10 +61,9 @@ class MainGame extends StatelessWidget {
   }
 
   //TODO:  Update to use pictures
-  Widget checkerPegWidget(CheckerCodes peg){
+  Widget checkerPegWidget(CheckerCodes peg) {
     return Text(peg.toString());
   }
-
 
   Widget guessRow() {
     return Row(
@@ -75,17 +76,25 @@ class MainGame extends StatelessWidget {
 
   //
 
-//  //Bottom Row
-//  Widget colorPoolWidget(intNumFields) {
-//    return null;
-//  }
-//
-//  StatelessWidget submitGuessWidget() {
-//    return new FlatButton(child: Text("Guess"), onPressed: null);
-//  }
-//
-//  Widget bottomRow(){ return Row(children: <Widget>[colorPoolWidget(1),submitGuessWidget()]);}
-//  //
+  //Bottom Row
+  Widget colorPoolWidget() {
+    List<PossiblePegs> currentColors = GamePegs().getGamePegs(gameDifficulty);
+    List<Widget> colorPegs;
+    for (int i = 0; i < currentColors.length; i++) {
+      colorPegs.add(guessPegWidget(currentColors[i]));
+    }
+    return Row(children: colorPegs);
+  }
+
+  StatelessWidget submitGuessWidget() {
+    return new FlatButton(child: Text("Guess"), onPressed: null);
+  }
+
+  Widget bottomRow() {
+    return Row(children: <Widget>[colorPoolWidget(), submitGuessWidget()]);
+  }
+
+  //
 
   @override
   Widget build(BuildContext context) {
