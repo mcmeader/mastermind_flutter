@@ -80,3 +80,6 @@ class GamePegs {
         PossiblePegs.empty,
       ];
 }
+
+GameDifficulty currentDifficulty = GameDifficulty.easy;
+PegColorScheme currentColorScheme = PegColorScheme.defaults;

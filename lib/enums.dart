@@ -20,9 +20,9 @@ enum GameMenuItems {
 }
 enum CheckerCodes { correctSpot, correctColor, notCorrect }
 enum PegColorScheme {
-  defaultScheme,
-  emojiScheme,
-  wordScheme,
-  catScheme,
-  angryScheme,
+  defaults,
+  emoji,
+  words,
+  cats,
+  angry,
 }

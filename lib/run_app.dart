@@ -6,6 +6,9 @@ void main() => runApp(MyApp());
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(color: Colors.red, home: MainMenu());
+    return MaterialApp(
+      color: Colors.white,
+      home: MainMenu(),
+    );
   }
 }
